@@ -18,8 +18,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
 
+def home(request):
+    return JsonResponse({"status": "OK", "message": "MANIT Bus Backend Running ✅"})
+    
 urlpatterns = [
+    path('', home),
+    
     path('admin/', admin.site.urls),
 
     # Include accounts app routes
